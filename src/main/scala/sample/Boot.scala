@@ -6,6 +6,9 @@ import spray.can.Http
 import akka.pattern.ask
 import akka.util.Timeout
 import scala.concurrent.duration._
+import akka.actor.Actor
+import spray.routing.HttpService
+import com.gettyimages.spray.swagger.SwaggerHttpService
  
 object Boot extends App {
  
@@ -17,4 +20,21 @@ object Boot extends App {
   // Bind HTTP to the specified service.
   implicit val timeout = Timeout(5.seconds)
   IO(Http) ? Http.Bind(service, interface = "localhost", port = 8080)
+}
+
+class Boot extends Actor with Service{
+  
+  val x = context
+  val swaggerService = new SwaggerHttpServiceWithPathPrefixSupport ()
+  
+  
+}
+
+
+trait Service extends Actor with HttpService {
+  
+}
+
+trait SwaggerHttpServiceWithPathPrefixSupport extends Actor with SwaggerHttpService {
+  
 }

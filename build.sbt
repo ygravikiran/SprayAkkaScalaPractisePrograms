@@ -19,11 +19,13 @@ lazy val root = (project in file(".")).
     "io.spray"            %%  "spray-can"     % sprayV withSources() withJavadoc(),
     "io.spray"            %%  "spray-routing" % sprayV withSources() withJavadoc(),
     "io.spray"            %%  "spray-json"    % "1.3.1",
+    "com.gettyimages"     %% "spray-swagger"  % "0.5.1",
     "io.spray"            %%  "spray-testkit" % sprayV  % "test",
     "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
     "org.specs2"          %%  "specs2-core"   % "2.3.11" % "test",
-    "org.scalaz"          %%  "scalaz-core"   % "7.1.0"
+    "org.scalaz"          %%  "scalaz-core"   % "7.1.0",
+    "com.wordnik"          %%  "swagger-annotations" % "1.3.10",
   )
 }
  
